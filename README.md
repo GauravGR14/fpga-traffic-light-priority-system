@@ -162,4 +162,4 @@ This project provided practical experience in:
 - Hardware debugging and pin-constraint mapping
 
 ## 👨‍💻 Author
-[Your name here]
+[Gaurav GR]
