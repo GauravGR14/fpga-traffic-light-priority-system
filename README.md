@@ -73,7 +73,7 @@ The design is split into four modules, each with a single responsibility:
 | `output_decoder` | Maps the current state to the 6 physical light outputs |
 | `traffic_light_top` | Top-level wiring connecting the above modules to physical pins |
 
-See [`docs/state_diagram.png`](docs/state_diagram.png) for the full visual state diagram.
+![State diagram](docs/state_diagram.png)
 
 ## 🧠 Finite State Machine
 
@@ -101,7 +101,7 @@ On every tick:
 
 Priority is only checked at state boundaries (not mid-state), so an in-progress green/yellow phase always finishes naturally before the safety buffer engages. If both directions request priority simultaneously, a fixed rule resolves the conflict (EW wins if both fire during NS_GREEN, NS wins if both fire during EW_GREEN).
 
-See [`docs/flowchart.png`](docs/flowchart.png) for the visual decision flow.
+![Decision flowchart](docs/flowchart.png)
 
 ## 📈 Results & Evidence
 
@@ -118,6 +118,12 @@ See [`docs/flowchart.png`](docs/flowchart.png) for the visual decision flow.
 ![Vivado simulation waveform](docs/simulation_waveform.png)
 
 The waveform confirms correct timing and state transitions, matching the algorithm above.
+
+**Board running the design:**
+
+![FPGA board running the traffic light controller](docs/board_photo.jpeg)
+
+The Real Digital Boolean Board programmed with the synthesized design — onboard LEDs indicate the active traffic light state, with push buttons wired for reset and emergency priority input.
 
 ## 🎥 Hardware Demonstration
 
